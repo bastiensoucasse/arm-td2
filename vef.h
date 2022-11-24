@@ -3,33 +3,39 @@
 
 using namespace std;
 
-struct vef_vertex{
-  int ind;
-  vector<double> coordinates;
-  vector <int> edges;
-  vector <int> faces;
-};
+typedef vector<double> raw_vertex;
+typedef vector<int> raw_face;
 
-struct vef_edge{
-  int ind;
-  vector <int> vertices;// ind(v0) < ind(v1) 
-  vector <pair<int,int>> faces; //  if v0->v1 then (ind(f), +1) else (ind(f), -1)
-};
+typedef struct vef_vertex
+{
+    int ind;
+    vector<double> coordinates;
+    vector<int> edges;
+    vector<int> faces;
+} vef_vertex;
 
-struct vef_face{
-  int ind;
-  vector <int> vertices;
-  vector <int> edges;
-};
+typedef struct vef_edge
+{
+    int ind;
+    vector<int> vertices;
+    vector<pair<int, int>> faces;
+} vef_edge;
 
-struct vef{
-  vector <vef_vertex> verticesEF;
-  vector <vef_edge> edgesVF;
-  vector <vef_face> facesVE;
-};
+typedef struct vef_face
+{
+    int ind;
+    vector<int> vertices;
+    vector<int> edges;
+} vef_face;
 
-extern tuple <int, int, int>  vef_from_wavefront(struct vef &vef, const char* file_name);
-extern int vef_to_vef(struct vef &v_e_f, const char* file_name);
- 
+typedef struct vef
+{
+    vector<vef_vertex> verticesEF;
+    vector<vef_edge> edgesVF;
+    vector<vef_face> facesVE;
+} vef;
 
-#endif /*  VEF_H */
+extern tuple<int, int, int> vef_from_wavefront(struct vef &vef, const char *file_name);
+extern int vef_to_vef(struct vef &v_e_f, const char *file_name);
+
+#endif // VEF_H

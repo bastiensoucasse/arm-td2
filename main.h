@@ -1,16 +1,16 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <iostream>
 #include <fstream>
-#include <sstream>
-
-#include <vector>
+#include <iostream>
 #include <iterator>
+#include <sstream>
 #include <tuple>
+#include <vector>
+
 #include "geom_data.h"
 #include "make_primitives.h"
-#include "wavefront_io.h"
 #include "vef.h"
+#include "wavefront_io.h"
 
-#endif /* MAIN_H */ 
+#endif // MAIN_H

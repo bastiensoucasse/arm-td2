@@ -1,4 +1,3 @@
-# https://stackoverflow.com/questions/287259/minimum-c-make-file-for-linux
 NAME = arm-td2
 
 FILES = $(shell basename -a $$(ls *.cpp) | sed 's/\.cpp//g')
